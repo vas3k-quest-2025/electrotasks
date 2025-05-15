@@ -78,6 +78,10 @@ void loop() {
     if (currentTime - lastMeasurementTime >= MEASUREMENT_INTERVAL) {
       lastMeasurementTime = currentTime;
       measureDistance();
+      if (distance == 0) {
+        delay(10);
+        return;
+      }
       displayDistance(distance);
     }
   }
