@@ -1,6 +1,8 @@
 SET(SOURCES ui_Screen1.c
     ui.c
     ui_comp_hook.c
-    ui_helpers.c)
+    ui_helpers.c
+    ui_img_images_logo_png.c
+    fonts/ui_font_Roboto.c)
 
 add_library(ui ${SOURCES})

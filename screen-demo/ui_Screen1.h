@@ -15,16 +15,15 @@ extern void ui_Screen1_screen_init(void);
 extern void ui_Screen1_screen_destroy(void);
 extern lv_obj_t *ui_Screen1;
 extern lv_obj_t *ui_Label1;
+extern lv_obj_t *ui_Label6;
 extern lv_obj_t *ui_Label2;
+extern lv_obj_t *ui_Image1;
 extern lv_obj_t *ui_Label3;
 extern lv_obj_t *ui_Label4;
-extern lv_obj_t *ui_Arc1;
-extern lv_obj_t *ui_Label5;
-extern lv_obj_t *ui_Label6;
 // CUSTOM VARIABLES
 extern lv_obj_t *uic_Screen1;
 extern lv_obj_t *uic_Label1;
-extern lv_obj_t *uic_days_arc;
+extern lv_obj_t *uic_time_label;
 extern lv_obj_t *uic_days_label;
 
 #ifdef __cplusplus
