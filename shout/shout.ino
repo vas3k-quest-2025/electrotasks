@@ -9,7 +9,7 @@
 
 static const int SYS_EN = 35;
 static const int NOISE_PIN = 2;
-static const int NOISE_TRESHOLD = 500;
+static const int NOISE_TRESHOLD = 3000;
 static const unsigned long NOISE_DISPLAY_DURATION = 5000; // 5 секунд в миллисекундах
 static const String CODE_WORD = "АПГРЕЙД";
 static const int BATTERY_PIN = 34; // Пин для считывания напряжения батареи
@@ -51,6 +51,7 @@ void example_increase_lvgl_tick(void *arg) {
 
 static uint8_t count = 0;
 static unsigned long lastNoiseTime = 0;
+static int maxNoiseLevel = 0;
 
 void example_increase_reboot(void *arg) {
   count++;
@@ -123,17 +124,22 @@ void loop() {
   unsigned long currentTime = millis();
 
   if (noiseValue > NOISE_TRESHOLD || currentTime - lastNoiseTime < NOISE_DISPLAY_DURATION) {
-    feeling = "Блин! Зачем\nтак орать?!\n" + String(noiseValue);
-    code = "Код:\n" + CODE_WORD;
+    if (noiseValue > maxNoiseLevel) {
+      maxNoiseLevel = noiseValue;
+    }
+    feeling = "Блин! Зачем\nтак орать?!";
+    code = "Код:\n" + CODE_WORD + "\n" + String(maxNoiseLevel);
     if (noiseValue > NOISE_TRESHOLD) {
       lastNoiseTime = currentTime;
     }
   } else if (noiseValue > NOISE_TRESHOLD / 2) {
     feeling = "Ещё чуть-чуть...";
     code = "";
+    maxNoiseLevel = 0;
   } else {
-    feeling = "Приготовься,\nсейчас будет\nочень больно" + String(noiseValue);
+    feeling = "Приготовься,\nсейчас будет\nочень больно";
     code = "";
+    maxNoiseLevel = 0;
   }
 
   lv_label_set_text(uic_label_feel, feeling.c_str());
