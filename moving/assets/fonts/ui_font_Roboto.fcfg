@@ -1,0 +1,17 @@
+{
+  "codename": "Roboto",
+  "ttf_path": "/assets/fonts/Roboto-Regular.ttf",
+  "bin_path": "/assets/fonts/ui_font_Roboto.bin",
+  "c_path": "/assets/fonts/ui_font_Roboto.c",
+  "cfg_path": "/assets/fonts/ui_font_Roboto.fcfg",
+  "size": 32,
+  "bpp": 1,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7F",
+    "0x400-0x4FF"
+  ],
+  "symbols": ".,!?()-+:=/ёЁ",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}
