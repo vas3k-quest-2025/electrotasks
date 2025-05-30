@@ -57,8 +57,8 @@ void setup()
     }
 
     lv_obj_add_flag(uic_arc, LV_OBJ_FLAG_HIDDEN);
-    lv_label_set_text(uic_message, "Ожидание...");
-    Set_Backlight(0); // Включаем подсветку на 80%
+    lv_label_set_text(uic_message, "Ну что там,\nгде светофор?");
+    Set_Backlight(40);
     lv_obj_set_style_text_color(uic_message, lv_color_make(255, 255, 255), 0);
     
     Serial.println("Инициализация завершена");
@@ -67,9 +67,9 @@ void setup()
 void resetToIdle() {
     currentState = IDLE;
     digitalWrite(LED_CONTROL, LOW);
-    Set_Backlight(1);
+    Set_Backlight(40);
     lv_obj_add_flag(uic_arc, LV_OBJ_FLAG_HIDDEN);
-    lv_label_set_text(uic_message, "Ожидание...");
+    lv_label_set_text(uic_message, "Ну что там,\nгде светофор?");
     lv_obj_set_style_text_color(uic_message, lv_color_make(255, 255, 255), 0);
 }
 
@@ -80,12 +80,6 @@ void startCountdown(const char* message, lv_color_t color) {
     lv_obj_set_style_text_color(uic_message, color, 0);
     lv_obj_clear_flag(uic_arc, LV_OBJ_FLAG_HIDDEN);
     lv_arc_set_value(uic_arc, 100);
-}
-
-bool isColorDetected(uint16_t r, uint16_t g, uint16_t b, int threshold) {
-    bool detected = (r > threshold && g < threshold && b < threshold);
-    Serial.printf("Цвет: R=%d, G=%d, B=%d, Порог=%d, Определен=%d\n", r, g, b, threshold, detected);
-    return detected;
 }
 
 bool isRed(u_int16_t r, uint16_t g, uint16_t b) {
@@ -131,7 +125,6 @@ void loop()
     if (currentState != IDLE && currentState != SHOWING_CODE) {
         uint16_t r, g, b, c;
         tcs.getRawData(&r, &g, &b, &c);
-        isColorDetected(r, g, b, 1000);
         Serial.printf("Цвет: R=%d, G=%d, B=%d\n", r, g, b);
         
         unsigned long currentTime = millis();

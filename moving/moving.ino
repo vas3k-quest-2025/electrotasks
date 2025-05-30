@@ -41,8 +41,8 @@ void setup()
     FastLED.show();
 
     lv_obj_add_flag(uic_arc, LV_OBJ_FLAG_HIDDEN);
-    lv_label_set_text(uic_message, "Ожидание...");
-    Set_Backlight(0); // Включаем подсветку на 80%
+    lv_label_set_text(uic_message, "Ждём людей...");
+    Set_Backlight(40);
     lv_obj_set_style_text_color(uic_message, lv_color_make(255, 255, 255), 0);
 }
 
@@ -67,7 +67,7 @@ void loop()
                 currentState = WAITING_FOR_MOTION;
                 lv_obj_set_style_text_color(uic_message, lv_color_make(255, 255, 255), 0); // Белый цвет
                 lv_label_set_text(uic_message, "Стой, не шевелись");
-                Set_Backlight(50);
+                Set_Backlight(80);
             }
             break;
 
@@ -120,10 +120,10 @@ void loop()
                 lv_label_set_text(uic_message, "Стой, не шевелись");
                 lv_obj_set_style_text_color(uic_message, lv_color_make(255, 255, 255), 0); // Белый цвет
             } else if (currentTime - lastUpdateTime >= MESSAGE_DISPLAY_TIME) {
-                lv_label_set_text(uic_message, "Ожидание...");
+                lv_label_set_text(uic_message, "Ждём людей...");
                 lv_obj_set_style_text_color(uic_message, lv_color_make(255, 255, 255), 0);
                 currentState = IDLE;
-                Set_Backlight(0); // Выключаем подсветку
+                Set_Backlight(40);
             }
             break;
     }
