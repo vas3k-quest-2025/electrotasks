@@ -19,7 +19,7 @@ const static int LED_COUNT = 1;
 // Цветовые пороги для датчика
 const static int RED_THRESHOLD = 800;
 const static int YELLOW_THRESHOLD = 1000;
-const static int GREEN_THRESHOLD = 1500;
+const static int GREEN_THRESHOLD = 900;
 
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_600MS, TCS34725_GAIN_1X);
 
@@ -103,7 +103,7 @@ bool isYellow(uint16_t r, uint16_t g, uint16_t b) {
 }
 
 bool isGreen(uint16_t r, uint16_t g, uint16_t b) {
-    if (g < r * 1.5 || g < b * 1.5) {
+    if (g < r * 1.5 || g < b * 1.3) {
         return false;
     }
     return g > GREEN_THRESHOLD;

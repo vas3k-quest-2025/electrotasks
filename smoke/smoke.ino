@@ -4,8 +4,8 @@
 
 const static int SENSOR_IN = 2;
 const static String code = "ПОТОЛОК";
-const static int SENSOR_THRESHOLD_HIGH = 260; // Порог для перехода в SHOWING_CODE
-const static int SENSOR_THRESHOLD_LOW = 250;  // Порог для перехода в WAITING
+const static int SENSOR_THRESHOLD_HIGH = 320; // Порог для перехода в SHOWING_CODE
+const static int SENSOR_THRESHOLD_LOW = 310;  // Порог для перехода в WAITING
 
 // Константы для таймера
 const static int MESSAGE_DISPLAY_TIME = 5000; // Время показа кодового слова в миллисекундах

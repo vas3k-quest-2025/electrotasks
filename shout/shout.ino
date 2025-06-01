@@ -9,7 +9,7 @@
 
 static const int SYS_EN = 35;
 static const int NOISE_PIN = 2;
-static const int NOISE_TRESHOLD = 3000;
+static const int NOISE_TRESHOLD = 3500;
 static const unsigned long NOISE_DISPLAY_DURATION = 5000; // 5 секунд в миллисекундах
 static const String CODE_WORD = "АПГРЕЙД";
 static const int BATTERY_PIN = 34; // Пин для считывания напряжения батареи

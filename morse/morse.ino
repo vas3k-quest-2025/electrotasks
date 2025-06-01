@@ -1,8 +1,8 @@
-const char WORD_TO_TRANSLATE[] = "ВАСТРИК      КЭМП      КВЕСТ"; // Передаваемое сообщение, между словами по шесть пробелов
+const char WORD_TO_TRANSLATE[] = "МОДУЛЬ"; // Передаваемое сообщение, между словами по шесть пробелов
 const int piezoPin = 10; // Пин пищалки
-const long dotDuration = 50; // Длительность точки, мс, чем короче, тем сложнее.
+const long dotDuration = 250; // Длительность точки, мс, чем короче, тем сложнее.
 const int toneFrequency = 1320; // Частота тона, Гц
-const int transmissionDelay = 10000; // Перерыв между повторами, мс
+const int transmissionDelay = 15000; // Перерыв между повторами, мс
 
 const char* morseCode[] = {
   ".-",     // А
