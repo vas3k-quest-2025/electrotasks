@@ -1,0 +1,1 @@
+This project is open source but not free — it contains [Roboto](https://fonts.google.com/specimen/Roboto) font and pictures from [Technotise: Edit and I](https://www.imdb.com/title/tt1372301/) animation movie.

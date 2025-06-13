@@ -5,7 +5,7 @@
 
 const static int LED_CTRL = 8;
 const static int LED_COUNT = 8;
-const static int BRIGHTNESS = 50;
+const static int BRIGHTNESS = 80;
 
 const static int PIR_IN = 1;
 const static String code = "ФИГУРКА";

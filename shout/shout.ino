@@ -128,7 +128,7 @@ void loop() {
       maxNoiseLevel = noiseValue;
     }
     feeling = "Блин! Зачем\nтак орать?!";
-    code = "Код:\n" + CODE_WORD + "\n" + String(maxNoiseLevel);
+    code = "Код:\n" + CODE_WORD;
     if (noiseValue > NOISE_TRESHOLD) {
       lastNoiseTime = currentTime;
     }
